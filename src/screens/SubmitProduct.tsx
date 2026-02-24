@@ -40,7 +40,7 @@ const ProductForm = () => {
             <View style={styles.formGroup}>
                 <Text style={styles.label}>Product Group:</Text>
                 <Dropdown
-                    options={[]}
+                    options={["Add New product group"]}
                     selectedValue={productGroup}
                     onSelect={setProductGroup}
                     placeholder="Select a group"

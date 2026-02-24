@@ -3,7 +3,7 @@ import {
     View,
     Text,
     TouchableOpacity,
-    FlatList,
+    ScrollView,
     StyleSheet,
 } from 'react-native';
 import {COLORS} from '../Theme';
@@ -35,11 +35,10 @@ const Dropdown: React.FC<DropdownProps> = ({
             </TouchableOpacity>
             {isOpen && (
                 <View style={styles.listContainer}>
-                    <FlatList
-                        data={options}
-                        keyExtractor={item => item}
-                        renderItem={({item}) => (
+                    <ScrollView nestedScrollEnabled>
+                        {options.map(item => (
                             <TouchableOpacity
+                                key={item}
                                 style={styles.option}
                                 onPress={() => {
                                     onSelect(item);
@@ -47,8 +46,8 @@ const Dropdown: React.FC<DropdownProps> = ({
                                 }}>
                                 <Text style={styles.optionText}>{item}</Text>
                             </TouchableOpacity>
-                        )}
-                    />
+                        ))}
+                    </ScrollView>
                 </View>
             )}
         </View>
