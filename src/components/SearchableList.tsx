@@ -56,6 +56,11 @@ const SearchableList: React.FC<SearchableListProps> = ({
                         <Text style={styles.optionText}>{item}</Text>
                     </TouchableOpacity>
                 )}
+                ListEmptyComponent={
+                    searchText || showBeforeSearch ? (
+                        <Text style={styles.emptyText}>No options found</Text>
+                    ) : null
+                }
             />
         </View>
     );
@@ -88,6 +93,11 @@ const styles = StyleSheet.create({
     optionText: {
         fontSize: 16,
         color: COLORS.darkText,
+    },
+    emptyText: {
+        fontSize: 16,
+        color: COLORS.darkText,
+        padding: 12,
     },
 });
 
